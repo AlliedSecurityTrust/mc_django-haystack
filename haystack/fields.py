@@ -128,7 +128,10 @@ class SearchField(object):
                     )
 
             if callable(current_object):
-                values.append(current_object())
+                try:
+                    values.append(current_object())
+                except:
+                    values.append(current_object.all())
             else:
                 values.append(current_object)
 
